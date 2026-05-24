@@ -15,12 +15,13 @@ SV_SOURCES = ../sv/pipe_pkg.sv \
 
 # UVM variables
 # Accelera's UVM library fetched with `wget https://www.accellera.org/images/downloads/standards/uvm/Accellera-1800.2-2017-1.0.tar.gz`
+# tar -xvzf Accellera-1800.2-2017-1.0.tar.gz
 UVM_HOME       = /opt/accellera/1800.2-2017-1.0/src
 UVM_PKG        = $(UVM_HOME)/uvm_pkg.sv
 UVM_TESTNAME  ?= data0_test
 ALL_TESTNAMES ?= data0_test data1_test random_test many_random_test
 
-# Output Directories
+# Output Directoriesnnnn
 OBJ_DIR  = obj_dir
 LOG_DIR  = logs
 CMP_LOG  = $(LOG_DIR)/verilator_compile.log
@@ -58,6 +59,7 @@ DISABLED_WARNINGS= -Wno-DECLFILENAME \
                    -Wno-CASEINCOMPLETE \
                    -Wno-SIDEEFFECT \
                    -Wno-fatal \
+                   -Wno-EOFNEWLINE \
                    -Wno-REALCVT
 
 INCDIRS = +incdir+"$(UVM_HOME)" \
